@@ -1,4 +1,3 @@
-
 class Complex{
    constructor(real, imaginary){
       this.real = real
@@ -11,18 +10,18 @@ class Complex{
 
    add(addend){
       if(typeof addend == "object"){
-         return Complex(this.real + addend.real, this.imaginary + addend.imaginary)
+         return new Complex(this.real + addend.real, this.imaginary + addend.imaginary)
       }
 
-      return Complex(this.real + addend, this.imaginary)
+      return new Complex(this.real + addend, this.imaginary)
    }
 
    multiply(multiplier){
       if(typeof multiplier == "object"){
-         return Complex(this.real * multiplier.real - this.imaginary * multiplier.imaginary, this.real * multiplier.imaginary + this.imaginary * multiplier.real)
+         return new Complex(this.real * multiplier.real - this.imaginary * multiplier.imaginary, this.real * multiplier.imaginary + this.imaginary * multiplier.real)
       }
 
-      return Complex(this.real * multiplier, this.imaginary * multiplier)
+      return new Complex(this.real * multiplier, this.imaginary * multiplier)
    }
 
    toString(){
