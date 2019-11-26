@@ -22,7 +22,7 @@ function setup(){
          let m = mandlebrot(c)
          let value = m/MAX_ITER * 255
 
-         stoke(value)
+         stroke(value)
          point(x,y)
       }
    }
