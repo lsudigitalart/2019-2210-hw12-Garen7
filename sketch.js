@@ -1,21 +1,25 @@
 let maxIterations = 80
-let leftBorder = -2
-let rightBorder = 1
-let topBorder = -1
-let bottomBorder = 1
+let leftBorder = -10
+let rightBorder = 5
+let topBorder = -5
+let bottomBorder = 5
 const MISIUREWICZ_REAL = -0.77568377 
 const MISIUREWICZ_IMAGINARY = 0.13646737
-const ZOOM_SPEED = .9 //Between 1 and 0
-const ITERATION_COUNT_INCREASE = 1.1 //maxIterations will increase by this much when we shrink
+const ZOOM_SPEED = .8 //Between 1 and 0
+const ITERATION_COUNT_INCREASE = 1.15 //maxIterations will increase by this much when we shrink
 
-const color1 = color('#110133')
-const color2 = color('#009183')
-const color3 = color('#4DD599')
-const color4 = color('#FFDC34')
+let color1
+let color2
+let color3
+let color4
 
 function setup(){
 	createCanvas(innerWidth, innerHeight)
 	strokeWeight(1)
+	color1 = color('#110133')
+	color2 = color('#00918E')
+	color3 = color('#4DD599')
+	color4 = color('#FFDC34')
 }
 
 function draw(){
@@ -58,7 +62,7 @@ function shrink(coefficient){
 }
 
 function decideColor(interval){
-	if(interval>=.66) return lerpColor(color1, color2, 3*(interval%.33));
-	if(interval>=.33) return lerpColor(color2, color3, 3*(interval%.33));
-	if(interval>=0) return lerpColor(color3, color4, 3*(interval%.33));
+	if(interval>.68) return lerpColor(color3, color4, 3*(interval%.34));
+	if(interval>.34) return lerpColor(color2, color3, 3*(interval%.34));
+	if(interval>=0) return lerpColor(color1, color2, 3*(interval%.34));
 }
